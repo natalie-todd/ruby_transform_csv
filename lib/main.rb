@@ -4,6 +4,7 @@ require './transform.rb'
 require './calculate_report.rb'
 require './output.rb'
 require './report.rb'
+require 'csv'
 
 class Main
 

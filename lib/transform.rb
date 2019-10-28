@@ -13,3 +13,5 @@ end
 
 read = Read.new
 transform = Transform.new(read)
+
+puts transform.transform_input
