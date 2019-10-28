@@ -1,3 +1,5 @@
+
+require 'csv'
 require './transform.rb'
 
 class Output
@@ -7,11 +9,14 @@ class Output
   end
 
   def write_output
-    @transform.transform_input
+    CSV.open("../output.csv", "w") do |csv|
+      @transform.transform_input.by_row.each do |row|
+        csv << [row]
+      end
+    end
   end
 end
 
-read = Read.new
-transform = Transform.new(read)
-output = Output.new(transform)
-
+reader = Read.new
+transformer = Transform.new(reader)
+output = Output.new(transformer)
